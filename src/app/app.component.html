@@ -1,9 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="floating" style="float: left">
-<ul>
-  <li *ngFor="let todo of todos" (click)="todoWasSelected(todo)"><h4>{{todo.title}}</h4><h6>User id:{{todo.userId}}</h6></li>
-</ul>
+<div id="loader" *ngIf="loading">
 </div>
+
 <div class="floating" style="float: left">
+<app-todo-list [todos]="todos" (todoSelected)="todoWasSelected($event)" ></app-todo-list>
+</div>
+<div class="floating" style="float: right; margin-right: 30px">
   <app-todo-detail *ngIf="selectedTodo" [todo]="selectedTodo"></app-todo-detail>
 </div>
